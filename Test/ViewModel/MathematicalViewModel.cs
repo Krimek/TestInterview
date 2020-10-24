@@ -35,18 +35,19 @@ namespace Test.ViewModel
         public string Number2
         {
             get => _number2;
-            set => Update(ref _number2, value);
-        }
-        public string Operation
-        {
-            get => _number2;
             set
             {
                 if (_regex.IsMatch(value))
                 {
-                    Update(ref _operation, value);
+                    Update(ref _number2, value);
                 }
             }
+        }
+
+        public string Operation
+        {
+            get => _operation;
+            set => Update(ref _operation, value);
         }
 
         public ObservableCollection<Equation> History { get; }  
@@ -59,7 +60,6 @@ namespace Test.ViewModel
         {
             Number1 = string.Empty;
             Number2 = String.Empty;
-            Operation = String.Empty;
         }
     }
 }
